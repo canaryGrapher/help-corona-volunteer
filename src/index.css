@@ -1,0 +1,84 @@
+html {
+  background-color: #3225ab;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background-color: #3225ab;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f7f7f7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #707070;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.App {
+  text-align: center;
+  background-color: #3225ab;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main-area {
+  background-color: #fafafa;
+  border-radius: 40px 0 0 40px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.text-offwhite {
+  color: #fafafa;
+}
+
+.allow-select {
+  cursor: pointer;
+}
+
+.side-bar {
+  background-color: #3225ab;
+}
+
+.delete-bin {
+  cursor: pointer;
+  color: #cf2406
+}
+
+.delete-bin:hover {
+  color: #794949;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-area {
+    border-radius: 0;
+  }
+}
+
+.information-tab {
+  border-radius: 40px 0 0 40px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  height: 100vh!important;
+  overflow: auto;
+}
