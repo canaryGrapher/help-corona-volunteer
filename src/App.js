@@ -29,7 +29,8 @@ function App() {
         <div className="col-md-1 d-md-flex flex-column d-none text-center text-white position-relative p-0 m-0 side-bar">
           <div className="position-absolute text-center w-100">
             <h1 className="text-white mx-auto mt-3 mb-0"><CustomerServiceFilled /></h1>
-            <p className="text-white text-center fw-bold mt-0">Volunteer</p>
+            <p className="text-white text-center fw-bold mt-0 mb-0">Volunteer</p>
+            <p>Ver: beta.2.0.1</p>
           </div>
           <div className="d-flex flex-column justify-content-center h-100">
             <div className={ResourceTabContainer} onClick={changeToResource}>
