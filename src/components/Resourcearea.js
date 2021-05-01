@@ -9,6 +9,7 @@ import state from '../Statenames'
 const { Title, Paragraph } = Typography
 
 const Resourcearea = () => {
+    const [form] = Form.useForm();
     const layout = {
         labelCol: { span: 6 },
         wrapperCol: { span: 18 },
@@ -45,6 +46,7 @@ const Resourcearea = () => {
         })
         console.log(sendPost.data)
         if (sendPost.data === "Inserted") {
+            form.resetFields();
             setVisible(false);
             setConfirmLoading(false);
             message.success("Added resource, thank you!")
@@ -149,6 +151,7 @@ const Resourcearea = () => {
                             initialValues={{ remember: true }}
                             onFinish={onFinish}
                             onFinishFailed={onFinishFailed}
+                            form={form}
                         >
                             <Form.Item
                                 label="Lead Name"
