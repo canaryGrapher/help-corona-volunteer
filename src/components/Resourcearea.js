@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, Card, List, Divider, Modal, Button, Input, Form, Select } from 'antd'
+import { Typography, Card, List, Divider, Modal, Button, Input, Form, Select, message } from 'antd'
 import ResourceSider from './ResourceSider'
 import axios from 'axios'
 import constants from '../Constants'
@@ -29,30 +29,30 @@ const Resourcearea = () => {
 
     const handleCancel = () => {
         setVisible(false);
-        if(confirmLoading === "samosa") {
+        if (confirmLoading === "samosa") {
             return null
         }
     };
-    const onFinish = (values) => {
-        axios.post(`${constants.URL}/api/resources/new/${constants.API_KEY}`, {
+    const onFinish = async (values) => {
+        const stateValue = values.state
+        const sendPost = await axios.post(`${constants.URL}/api/resources/new/${constants.API_KEY}`, {
             name: values.name,
             phone: values.phone,
-            state: values.state,
+            state: stateValue.toLowerCase(),
             district: values.district,
             info: values.info,
-            type: values.type,
-            creator: values.creator
-        }).then(res => {
-            if (res.data === "Inserted") {
-                setVisible(false);
-                setConfirmLoading(false);
-            }
-            else {
-                alert("There was an error, please try that again.")
-                setVisible(false);
-                setConfirmLoading(false);
-            }
+            type: values.type
         })
+        console.log(sendPost.data)
+        if (sendPost.data === "Inserted") {
+            setVisible(false);
+            setConfirmLoading(false);
+            message.success("Added resource, thank you!")
+        } else {
+            message.error("There was an error!")
+            setVisible(false);
+            setConfirmLoading(false);
+        }
         const reversalState = !loadingState
         setLoadingState(reversalState)
     };
